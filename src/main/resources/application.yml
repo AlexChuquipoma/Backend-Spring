@@ -1,33 +1,15 @@
 spring:
   application:
     name: portfolio-backend
-
-  # H2 Database
-  datasource:
-    url: jdbc:h2:file:./data/portfolio_db
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
-  # JPA / Hibernate
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+  
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
 
 # Server
 server:
-  port: 8080
+  port: ${PORT:8080}
 
-# JWT
+# JWT (valores por defecto, sobreescritos por perfiles)
 jwt:
-  secret: CambiaEstaPorUnaClaveSecretaMuyLargaYSeguraDeAlMenos256Bits2024PortfolioBackend
-  expiration: 86400000
+  secret: ${JWT_SECRET:CambiaEstaPorUnaClaveSecretaMuyLargaYSeguraDeAlMenos256Bits2024PortfolioBackend}
+  expiration: ${JWT_EXPIRATION:86400000}
