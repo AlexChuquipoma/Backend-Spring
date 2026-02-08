@@ -32,7 +32,7 @@ server:
 
 # JWT
 jwt:
-  secret: ${JWT_SECRET}
+  secret: ${JWT_SECRET:CambiaEstaPorUnaClaveSecretaMuyLargaYSeguraDeAlMenos256Bits2024PortfolioBackend}
   expiration: ${JWT_EXPIRATION:86400000}
 
 # Logging
@@ -40,3 +40,9 @@ logging:
   level:
     com.portfolio.backend: INFO
     org.springframework: WARN
+
+# Cloudinary Configuration
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:dfarmcidt}
+  api-key: ${CLOUDINARY_API_KEY:289235364492953}
+  api-secret: ${CLOUDINARY_API_SECRET:KZwkYrVcJH0iobyrkgCYUlskxM0}

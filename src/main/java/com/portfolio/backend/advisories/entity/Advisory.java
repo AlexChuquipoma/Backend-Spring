@@ -39,6 +39,9 @@ public class Advisory {
     private LocalDate date;
     private LocalTime time;
 
+    @Column(nullable = false)
+    private String modality; // "VIRTUAL", "PRESENCIAL"
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

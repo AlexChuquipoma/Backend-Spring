@@ -1,6 +1,5 @@
-package com.portfolio.backend.schedules.dto;
+package com.portfolio.backend.advisories.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,17 +12,15 @@ import java.time.LocalTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ScheduleDTO {
+public class AdvisoryDTO {
     private Long id;
     private Long programmerId;
     private String programmerName;
-
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
-
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime time;
-
+    private Long userId;
+    private String userName;
     private String status;
+    private String message;
+    private LocalDate date;
+    private LocalTime time;
     private String modality;
 }

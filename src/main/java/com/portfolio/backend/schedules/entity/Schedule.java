@@ -1,5 +1,6 @@
 package com.portfolio.backend.schedules.entity;
 
+import com.portfolio.backend.schedules.entity.enums.Modality;
 import com.portfolio.backend.users.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -32,6 +33,10 @@ public class Schedule {
 
     @Column(nullable = false)
     private String status; // "AVAILABLE", "BOOKED"
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Modality modality;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

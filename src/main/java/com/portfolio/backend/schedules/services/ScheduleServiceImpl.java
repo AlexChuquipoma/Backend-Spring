@@ -2,6 +2,7 @@ package com.portfolio.backend.schedules.services;
 
 import com.portfolio.backend.schedules.dto.ScheduleDTO;
 import com.portfolio.backend.schedules.entity.Schedule;
+import com.portfolio.backend.schedules.entity.enums.Modality;
 import com.portfolio.backend.schedules.repository.ScheduleRepository;
 import com.portfolio.backend.users.entity.User;
 import com.portfolio.backend.users.repository.UserRepository;
@@ -33,6 +34,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 .date(dto.getDate())
                 .time(dto.getTime())
                 .status("AVAILABLE")
+                .modality(dto.getModality() != null ? Modality.valueOf(dto.getModality()) : Modality.VIRTUAL)
                 .build();
 
         Schedule saved = scheduleRepository.save(schedule);
@@ -64,6 +66,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 .date(schedule.getDate())
                 .time(schedule.getTime())
                 .status(schedule.getStatus())
+                .modality(schedule.getModality().name())
                 .build();
     }
 }
