@@ -151,6 +151,26 @@ public class ProgrammerProfileServiceImpl implements ProgrammerProfileService {
         }
 
         /**
+         * Obtiene TODOS los perfiles de programadores.
+         * Endpoint público - No requiere autenticación.
+         * 
+         * Útil para mostrar un directorio o showcase de todos los programadores
+         * registrados en la plataforma.
+         * 
+         * @return Lista de DTOs con todos los perfiles
+         */
+        @Override
+        public java.util.List<ProgrammerProfileDTO> getAllProfiles() {
+                // Obtener todos los perfiles de la base de datos
+                java.util.List<ProgrammerProfile> profiles = profileRepository.findAll();
+
+                // Convertir cada perfil a DTO usando stream().map()
+                return profiles.stream()
+                                .map(this::convertToDTO)
+                                .collect(java.util.stream.Collectors.toList());
+        }
+
+        /**
          * Método privado para convertir una entidad ProgrammerProfile a DTO.
          *
          * ¿Por qué usar DTOs?

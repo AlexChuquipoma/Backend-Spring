@@ -80,6 +80,23 @@ public class ProgrammerProfileController {
     }
 
     /**
+     * Obtiene TODOS los perfiles de programadores.
+     * 
+     * Endpoint: GET /api/profiles/all
+     * Acceso: PÚBLICO (no requiere autenticación)
+     * 
+     * Útil para mostrar un directorio/showcase de todos los programadores
+     * registrados en la plataforma.
+     * 
+     * @return ResponseEntity con lista de todos los perfiles
+     */
+    @GetMapping("/all")
+    public ResponseEntity<java.util.List<ProgrammerProfileDTO>> getAllProfiles() {
+        java.util.List<ProgrammerProfileDTO> profiles = profileService.getAllProfiles();
+        return ResponseEntity.ok(profiles);
+    }
+
+    /**
      * Crea o actualiza el perfil del usuario autenticado.
      *
      * Endpoint: POST /api/profiles

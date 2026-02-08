@@ -59,7 +59,7 @@ public class UpdateProfileRequest {
      * Validaciones:
      * - Debe ser una URL de GitHub válida
      */
-    @Pattern(regexp = "^https://github\\.com/[a-zA-Z0-9_-]+/?$", message = "La URL de GitHub debe tener el formato: https://github.com/usuario")
+    @Pattern(regexp = "^https://github\\.com/[a-zA-Z0-9_-]+(/[a-zA-Z0-9_.-]+)*/?$", message = "La URL de GitHub debe tener el formato: https://github.com/usuario o https://github.com/usuario/repositorio")
     private String githubUrl;
 
     /**
@@ -79,11 +79,12 @@ public class UpdateProfileRequest {
     private String instagramUrl;
 
     /**
-     * Número de WhatsApp (formato internacional)
+     * WhatsApp: número internacional o enlace wa.me
      * Validaciones:
-     * - Debe ser un número de teléfono válido
+     * - Número internacional: +593987654321
+     * - Enlace: https://wa.me/593987654321
      */
-    @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "El número de WhatsApp debe ser válido (formato internacional: +593987654321)")
+    @Pattern(regexp = "^(\\+?[1-9]\\d{1,14}|https://(wa\\.me|api\\.whatsapp\\.com|web\\.whatsapp\\.com)/?.*)$", message = "Ingrese un número válido (+593987654321) o enlace de WhatsApp (https://wa.me/593987654321)")
     private String whatsappUrl;
 
     /**

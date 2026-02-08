@@ -38,7 +38,17 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/profiles/all").permitAll() // Public
+                                                                                                                   // access
+                                                                                                                   // to
+                                                                                                                   // all
+                                                                                                                   // profiles
                         .requestMatchers("/api/profiles/user/**").permitAll() // Public access to view profiles
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/projects/**").permitAll() // Public
+                                                                                                                  // access
+                                                                                                                  // to
+                                                                                                                  // view
+                                                                                                                  // projects
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
