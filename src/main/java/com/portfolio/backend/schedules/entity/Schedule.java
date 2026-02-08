@@ -1,12 +1,12 @@
 package com.portfolio.backend.schedules.entity;
 
-import com.portfolio.backend.schedules.entity.enums.Modality;
 import com.portfolio.backend.users.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "schedules")
@@ -20,21 +20,26 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "programmer_id", nullable = false)
     private User programmer;
 
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private DayOfWeek dayOfWeek;
+    private LocalDate date;
 
     @Column(nullable = false)
-    private LocalTime startTime;
+    private LocalTime time;
 
     @Column(nullable = false)
-    private LocalTime endTime;
+    private String status; // "AVAILABLE", "BOOKED"
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Modality modality;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        if (status == null)
+            status = "AVAILABLE";
+    }
 }

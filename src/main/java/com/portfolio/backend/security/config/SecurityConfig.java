@@ -44,11 +44,12 @@ public class SecurityConfig {
                                                                                                                    // all
                                                                                                                    // profiles
                         .requestMatchers("/api/profiles/user/**").permitAll() // Public access to view profiles
-                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/projects/**").permitAll() // Public
-                                                                                                                  // access
-                                                                                                                  // to
-                                                                                                                  // view
-                                                                                                                  // projects
+                        .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/projects/**").permitAll()
+                        .requestMatchers("/api/schedules/**").permitAll() // TEMPORARY DEBUG
+                                                                          // access
+                                                                          // to
+                                                                          // view
+                                                                          // projects
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 

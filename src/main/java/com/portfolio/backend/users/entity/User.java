@@ -21,6 +21,9 @@ public class User {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -36,6 +39,24 @@ public class User {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    // --- RELACIONES OneToMany para borrar en cascada ---
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private java.util.List<com.portfolio.backend.projects.entity.Project> projects;
+
+    @OneToMany(mappedBy = "programmer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private java.util.List<com.portfolio.backend.advisories.entity.Advisory> advisoriesAsProgrammer;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private java.util.List<com.portfolio.backend.advisories.entity.Advisory> advisoriesAsUser;
+
+    @OneToMany(mappedBy = "programmer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private java.util.List<com.portfolio.backend.schedules.entity.Schedule> schedules;
 
     @PrePersist
     protected void onCreate() {
