@@ -3,6 +3,7 @@ package com.portfolio.backend.profiles.controllers;
 import com.portfolio.backend.profiles.dtos.ProgrammerProfileDTO;
 import com.portfolio.backend.profiles.dtos.UpdateProfileRequest;
 import com.portfolio.backend.profiles.services.ProgrammerProfileService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -101,7 +102,7 @@ public class ProgrammerProfileController {
      */
     @PostMapping
     public ResponseEntity<ProgrammerProfileDTO> createOrUpdateProfile(
-            @RequestBody UpdateProfileRequest request,
+            @Valid @RequestBody UpdateProfileRequest request,
             Authentication authentication) {
         String userEmail = authentication.getName();
         ProgrammerProfileDTO profile = profileService.createOrUpdateProfile(userEmail, request);
@@ -121,7 +122,7 @@ public class ProgrammerProfileController {
      */
     @PutMapping
     public ResponseEntity<ProgrammerProfileDTO> updateProfile(
-            @RequestBody UpdateProfileRequest request,
+            @Valid @RequestBody UpdateProfileRequest request,
             Authentication authentication) {
         String userEmail = authentication.getName();
         ProgrammerProfileDTO profile = profileService.createOrUpdateProfile(userEmail, request);
