@@ -6,7 +6,7 @@ spring:
     active: ${SPRING_PROFILES_ACTIVE:dev}
   
 brevo:
-  api-key: ${BREVO_API_KEY}
+  api-key: ${BREVO_API_KEY:xkeysib-placeholder-key-for-dev}
   sender-email: alexchvs432@gmail.com
   sender-name: CiberPortfolio
 

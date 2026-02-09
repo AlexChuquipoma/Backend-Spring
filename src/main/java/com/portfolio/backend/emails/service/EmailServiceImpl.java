@@ -28,6 +28,11 @@ public class EmailServiceImpl implements EmailService {
     @Override
     @Async
     public void sendSimpleMessage(String to, String subject, String text) {
+        if (apiKey == null || apiKey.contains("placeholder")) {
+            log.warn("=== EMAIL SKIP: API Key no configurada. Email a {} no enviado. ===", to);
+            return;
+        }
+
         log.info("=== BREVO API: Iniciando envio de email ===");
         log.info("   To: {}", to);
         log.info("   From: {} <{}>", senderName, senderEmail);

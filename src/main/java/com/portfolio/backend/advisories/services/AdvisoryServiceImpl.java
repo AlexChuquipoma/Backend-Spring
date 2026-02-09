@@ -18,9 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.portfolio.backend.projects.entity.Project;
-import com.portfolio.backend.profiles.entity.ProgrammerProfile;
-
 import com.portfolio.backend.profiles.repository.ProgrammerProfileRepository;
 
 @Service
