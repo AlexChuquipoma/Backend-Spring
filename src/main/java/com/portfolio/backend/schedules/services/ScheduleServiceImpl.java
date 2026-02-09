@@ -36,6 +36,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 .programmer(programmer)
                 .date(dto.getDate())
                 .time(dto.getTime())
+                .startTime(dto.getTime())
                 .endTime(endTime)
                 .status("AVAILABLE")
                 .modality(dto.getModality() != null ? Modality.valueOf(dto.getModality()) : Modality.VIRTUAL)
