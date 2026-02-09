@@ -38,6 +38,11 @@ public class Schedule {
     @Column(nullable = false)
     private Modality modality;
 
+    @Column(name = "day_of_week", nullable = false)
+    private String dayOfWeek;
+
+    private String description;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -46,5 +51,7 @@ public class Schedule {
         createdAt = LocalDateTime.now();
         if (status == null)
             status = "AVAILABLE";
+        if (dayOfWeek == null && date != null)
+            dayOfWeek = date.getDayOfWeek().name();
     }
 }
