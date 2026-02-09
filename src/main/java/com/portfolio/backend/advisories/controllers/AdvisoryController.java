@@ -32,13 +32,24 @@ public class AdvisoryController {
         return ResponseEntity.ok(advisoryService.getAdvisoriesByUser(id));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<AdvisoryDTO>> getAll() {
+        return ResponseEntity.ok(advisoryService.getAllAdvisories());
+    }
+
     @PutMapping("/{id}/status")
-    public ResponseEntity<AdvisoryDTO> updateStatus(@PathVariable Long id, @RequestParam String status) {
-        return ResponseEntity.ok(advisoryService.updateAdvisoryStatus(id, status));
+    public ResponseEntity<AdvisoryDTO> updateStatus(@PathVariable Long id, @RequestParam String status,
+            @RequestParam(required = false) String responseMessage) {
+        return ResponseEntity.ok(advisoryService.updateAdvisoryStatus(id, status, responseMessage));
     }
 
     @GetMapping("/stats/programmer/{id}")
     public ResponseEntity<Map<String, Long>> getStats(@PathVariable Long id) {
         return ResponseEntity.ok(advisoryService.getProgrammerStats(id));
+    }
+
+    @GetMapping("/stats/user/{id}")
+    public ResponseEntity<Map<String, Long>> getUserStats(@PathVariable Long id) {
+        return ResponseEntity.ok(advisoryService.getUserStats(id));
     }
 }

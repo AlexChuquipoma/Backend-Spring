@@ -29,12 +29,19 @@ public class Advisory {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "schedule_id")
+    private com.portfolio.backend.schedules.entity.Schedule schedule;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AdvisoryStatus status;
 
     @Column(columnDefinition = "TEXT")
     private String message;
+
+    @Column(columnDefinition = "TEXT")
+    private String responseMessage;
 
     private LocalDate date;
     private LocalTime time;

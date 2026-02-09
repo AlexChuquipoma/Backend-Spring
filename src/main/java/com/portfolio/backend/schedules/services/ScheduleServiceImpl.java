@@ -50,6 +50,15 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<ScheduleDTO> getSchedulesByProgrammer(Long programmerId) {
+        return scheduleRepository.findByProgrammerId(programmerId).stream()
+                .filter(s -> "AVAILABLE".equals(s.getStatus()))
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     @Transactional
     public void deleteSchedule(Long id) {
         if (!scheduleRepository.existsById(id)) {

@@ -28,6 +28,11 @@ public class ScheduleController {
         return ResponseEntity.ok(scheduleService.getAllSchedules());
     }
 
+    @GetMapping("/programmer/{programmerId}")
+    public ResponseEntity<List<ScheduleDTO>> getByProgrammer(@PathVariable Long programmerId) {
+        return ResponseEntity.ok(scheduleService.getSchedulesByProgrammer(programmerId));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteSchedule(@PathVariable Long id) {
         scheduleService.deleteSchedule(id);

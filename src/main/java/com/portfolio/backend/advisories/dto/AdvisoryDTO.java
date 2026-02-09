@@ -23,4 +23,6 @@ public class AdvisoryDTO {
     private LocalDate date;
     private LocalTime time;
     private String modality;
+    private String responseMessage;
+    private Long scheduleId; // To link and update schedule status
 }

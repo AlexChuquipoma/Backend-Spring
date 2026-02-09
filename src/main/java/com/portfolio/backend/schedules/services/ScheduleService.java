@@ -8,6 +8,7 @@ public interface ScheduleService {
 
     List<ScheduleDTO> getAllSchedules();
 
-    // List<ScheduleDTO> getSchedulesByProgrammer(Long programmerId);
+    List<ScheduleDTO> getSchedulesByProgrammer(Long programmerId);
+
     void deleteSchedule(Long id);
 }

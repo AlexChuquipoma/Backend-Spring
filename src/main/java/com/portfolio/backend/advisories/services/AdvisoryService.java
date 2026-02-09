@@ -12,7 +12,11 @@ public interface AdvisoryService {
 
     List<AdvisoryDTO> getAdvisoriesByUser(Long userId);
 
-    AdvisoryDTO updateAdvisoryStatus(Long id, String status);
+    List<AdvisoryDTO> getAllAdvisories();
+
+    AdvisoryDTO updateAdvisoryStatus(Long id, String status, String responseMessage);
 
     Map<String, Long> getProgrammerStats(Long programmerId);
+
+    Map<String, Long> getUserStats(Long userId);
 }

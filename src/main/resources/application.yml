@@ -4,6 +4,11 @@ spring:
   
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+  
+brevo:
+  api-key: ${BREVO_API_KEY}
+  sender-email: alexchvs432@gmail.com
+  sender-name: CiberPortfolio
 
 # Server
 server:
@@ -13,3 +18,4 @@ server:
 jwt:
   secret: ${JWT_SECRET:CambiaEstaPorUnaClaveSecretaMuyLargaYSeguraDeAlMenos256Bits2024PortfolioBackend}
   expiration: ${JWT_EXPIRATION:86400000}
+

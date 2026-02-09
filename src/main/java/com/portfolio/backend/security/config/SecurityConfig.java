@@ -61,6 +61,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
                 "http://localhost:4321",
+                "http://localhost:4322",
+                "http://localhost:4323",
                 "http://localhost:3000",
                 "https://backend-portfolio-f9095.web.app",
                 "https://backend-portfolio-f9095.firebaseapp.com"));
