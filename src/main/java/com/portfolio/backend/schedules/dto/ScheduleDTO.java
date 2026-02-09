@@ -24,6 +24,9 @@ public class ScheduleDTO {
     @JsonFormat(pattern = "HH:mm")
     private LocalTime time;
 
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime endTime;
+
     private String status;
     private String modality;
 }

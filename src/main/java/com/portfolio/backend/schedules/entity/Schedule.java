@@ -41,6 +41,9 @@ public class Schedule {
     @Column(name = "day_of_week", nullable = false)
     private String dayOfWeek;
 
+    @Column(name = "end_time", nullable = false)
+    private LocalTime endTime;
+
     private String description;
 
     @Column(name = "created_at")
@@ -53,5 +56,7 @@ public class Schedule {
             status = "AVAILABLE";
         if (dayOfWeek == null && date != null)
             dayOfWeek = date.getDayOfWeek().name();
+        if (endTime == null && time != null)
+            endTime = time.plusHours(1);
     }
 }

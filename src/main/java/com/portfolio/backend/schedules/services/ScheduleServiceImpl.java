@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,10 +30,13 @@ public class ScheduleServiceImpl implements ScheduleService {
         // TODO: Validate role is PROGRAMMER?
         // if (programmer.getRole() != Role.PROGRAMMER) ...
 
+        LocalTime endTime = dto.getEndTime() != null ? dto.getEndTime() : dto.getTime().plusHours(1);
+
         Schedule schedule = Schedule.builder()
                 .programmer(programmer)
                 .date(dto.getDate())
                 .time(dto.getTime())
+                .endTime(endTime)
                 .status("AVAILABLE")
                 .modality(dto.getModality() != null ? Modality.valueOf(dto.getModality()) : Modality.VIRTUAL)
                 .build();
@@ -74,6 +78,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 .programmerName(schedule.getProgrammer().getName())
                 .date(schedule.getDate())
                 .time(schedule.getTime())
+                .endTime(schedule.getEndTime())
                 .status(schedule.getStatus())
                 .modality(schedule.getModality().name())
                 .build();
