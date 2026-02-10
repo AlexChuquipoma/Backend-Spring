@@ -1,3 +1,27 @@
+# Programación y Plataformas Web
+
+## Portfolio Web - Backend
+
+<div align="center">
+
+![Universidad Politécnica Salesiana](https://bioquimicayfarmaciagye.ups.edu.ec/image/company_logo?img_id=95813&t=1739897459404)
+
+### Universidad Politécnica Salesiana
+### Carrera de Computación
+
+<br>
+
+### Autores
+**Alexander Chuquipoma**  
+📧 [achuquipoma@est.ups.edu.ec](mailto:achuquipoma@est.ups.edu.ec)  
+💻 GitHub: [AlexChuquipoma](https://github.com/AlexChuquipoma)
+
+**Juan Fernandez**  
+📧 [jfernandezl6@est.ups.edu.ec](mailto:jfernandezl6@est.ups.edu.ec)  
+💻 GitHub: [Juan0Fernandez](https://github.com/Juan0Fernandez)
+
+---
+
 # INFORME COMPLETO DEL PROYECTO - CiberPortfolio
 
 ## Tabla de Contenidos
