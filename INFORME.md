@@ -12,15 +12,17 @@
 <br>
 
 ### Autores
-**Alexander Chuquipoma**  
-📧 [achuquipoma@est.ups.edu.ec](mailto:achuquipoma@est.ups.edu.ec)  
+**Alexander Chuquipoma**
+📧 [achuquipoma@est.ups.edu.ec](mailto:achuquipoma@est.ups.edu.ec)
 💻 GitHub: [AlexChuquipoma](https://github.com/AlexChuquipoma)
 
-**Juan Fernandez**  
-📧 [jfernandezl6@est.ups.edu.ec](mailto:jfernandezl6@est.ups.edu.ec)  
+**Juan Fernandez**
+📧 [jfernandezl6@est.ups.edu.ec](mailto:jfernandezl6@est.ups.edu.ec)
 💻 GitHub: [Juan0Fernandez](https://github.com/Juan0Fernandez)
 
 ---
+
+</div>
 
 # INFORME COMPLETO DEL PROYECTO - CiberPortfolio
 
