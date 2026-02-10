@@ -4,6 +4,7 @@ import com.portfolio.backend.projects.dtos.CreateProjectRequest;
 import com.portfolio.backend.projects.dtos.ProjectDTO;
 import com.portfolio.backend.projects.dtos.UpdateProjectRequest;
 import com.portfolio.backend.projects.services.ProjectService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +16,7 @@ import java.util.List;
 
 /**
  * Controlador REST para gestionar proyectos
- * 
+ *
  * Endpoints disponibles:
  * - POST /api/projects - Crear proyecto (requiere auth)
  * - PUT /api/projects/{id} - Actualizar proyecto (requiere auth + ownership)
@@ -24,7 +25,7 @@ import java.util.List;
  * - GET /api/projects/me - Mis proyectos (requiere auth)
  * - GET /api/projects/user/{userId} - Proyectos de usuario (público)
  * - GET /api/projects - Listar todos (público)
- * 
+ *
  * @RestController: Combina @Controller + @ResponseBody
  * @RequestMapping: Prefijo base para todos los endpoints
  * @RequiredArgsConstructor: Inyección de dependencias por constructor
@@ -34,6 +35,7 @@ import java.util.List;
 @RequestMapping("/api/projects")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Proyectos", description = "CRUD de proyectos del portafolio")
 public class ProjectController {
 
     private final ProjectService projectService;

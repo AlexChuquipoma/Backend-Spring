@@ -4,6 +4,7 @@ import com.portfolio.backend.security.dtos.AuthResponse;
 import com.portfolio.backend.security.dtos.LoginRequest;
 import com.portfolio.backend.security.dtos.RegisterRequest;
 import com.portfolio.backend.security.services.AuthService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@Tag(name = "Autenticacion", description = "Login, registro y sesion del usuario")
 public class AuthController {
 
     private final AuthService authService;

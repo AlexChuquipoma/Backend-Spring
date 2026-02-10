@@ -3,6 +3,7 @@ package com.portfolio.backend.users.controllers;
 import com.portfolio.backend.users.dtos.UpdateUserRequest;
 import com.portfolio.backend.users.dtos.UserDTO;
 import com.portfolio.backend.users.services.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Usuarios", description = "Gestion de usuarios, imagen de perfil y roles")
 public class UserController {
 
     private final UserService userService;

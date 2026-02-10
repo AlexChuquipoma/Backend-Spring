@@ -1,6 +1,13 @@
 # Multi-stage build para Spring Boot con Maven
 
-# Etapa 1: Build
+# Etapa 1:# ==========================================
+# INSTRUCCIONES PARA RENDER (LA NUBE)
+# Este archivo le dice a Render cómo crear tu servidor desde cero.
+# No afecta a tu PC local.
+# ==========================================
+
+# 1. Fase de Construcción (Maven)
+# Usamos una imagen con Maven para compilar el código Java
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /app
 

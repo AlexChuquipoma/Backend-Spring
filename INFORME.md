@@ -48,7 +48,8 @@
 7. [Despliegue y Configuracion](#7-despliegue-y-configuracion)
    - 7.1 [Render (Backend)](#71-render-backend)
    - 7.2 [Firebase Hosting (Frontend)](#72-firebase-hosting-frontend)
-8. [Archivos Importantes](#8-archivos-importantes)
+8. [Documentacion de la API (Swagger / OpenAPI)](#8-documentacion-de-la-api-swagger--openapi)
+9. [Archivos Importantes](#9-archivos-importantes)
 
 ---
 
@@ -1114,7 +1115,57 @@ Esta variable se usa en `api.config.ts` y `auth.service.ts` para apuntar al back
 
 ---
 
-## 8. Archivos Importantes
+## 8. Documentacion de la API (Swagger / OpenAPI)
+
+Se implemento documentacion interactiva de la API utilizando **SpringDoc OpenAPI 3.0.1** con **Swagger UI**.
+
+### 8.1 URL de acceso
+
+| Entorno | URL |
+|---------|-----|
+| **Produccion** | `https://backend-spring-wgjc.onrender.com/swagger-ui.html` |
+| **Local** | `http://localhost:8080/swagger-ui.html` |
+| **JSON OpenAPI** | `https://backend-spring-wgjc.onrender.com/v3/api-docs` |
+
+### 8.2 Como funciona
+
+SpringDoc escanea automaticamente todos los controladores REST del proyecto y genera:
+- Una especificacion **OpenAPI 3.0** en formato JSON (`/v3/api-docs`)
+- Una interfaz web interactiva **Swagger UI** (`/swagger-ui.html`)
+
+Los endpoints se agrupan por modulo gracias a la anotacion `@Tag`:
+
+| Grupo | Controlador | Descripcion |
+|-------|-------------|-------------|
+| Autenticacion | `AuthController` | Login, registro y sesion |
+| Usuarios | `UserController` | Gestion de usuarios, imagen y roles |
+| Perfiles | `ProgrammerProfileController` | Perfil profesional del programador |
+| Proyectos | `ProjectController` | CRUD de proyectos del portafolio |
+| Horarios | `ScheduleController` | Horarios de disponibilidad |
+| Asesorias | `AdvisoryController` | Solicitud, gestion y estadisticas |
+
+### 8.3 Autenticacion en Swagger
+
+Swagger UI incluye un boton **"Authorize"** que permite ingresar el token JWT para probar endpoints protegidos:
+
+1. Hacer login en `/api/auth/login` desde Swagger (copia el token de la respuesta)
+2. Hacer clic en el boton "Authorize" (icono de candado)
+3. Pegar el token JWT
+4. Todos los endpoints protegidos enviaran automaticamente el header `Authorization: Bearer <token>`
+
+### 8.4 Archivos involucrados
+
+| Archivo | Funcion |
+|---------|---------|
+| `pom.xml` | Dependencia `springdoc-openapi-starter-webmvc-ui:3.0.1` |
+| `config/OpenApiConfig.java` | Configuracion: titulo, descripcion, autores, esquema JWT |
+| `security/config/SecurityConfig.java` | Permite acceso publico a `/swagger-ui/**` y `/v3/api-docs/**` |
+| `security/filters/JwtAuthenticationFilter.java` | Excluye rutas de Swagger del filtro JWT |
+| Cada `*Controller.java` | Anotacion `@Tag` para agrupar endpoints |
+
+---
+
+## 9. Archivos Importantes
 
 ### Backend (Spring Boot)
 

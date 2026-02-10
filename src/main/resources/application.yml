@@ -2,6 +2,11 @@ spring:
   application:
     name: portfolio-backend
   
+  # --- SELECTOR DE PERFILES ---
+  # Define qué configuración usar:
+  # 'dev'  -> Para tu PC (Localhost)
+  # 'prod' -> Para la Nube (Render)
+  # Render sobreescribe esto automáticamente con una variable de entorno.
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
   

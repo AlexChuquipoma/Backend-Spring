@@ -1,3 +1,7 @@
+# ==========================================
+# PERFIL DE DESARROLLO (LOCAL)
+# Se usa cuando estás programando en tu PC.
+# ==========================================
 spring:
   application:
    name: portfolio-backend

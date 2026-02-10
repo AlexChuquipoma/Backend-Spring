@@ -1,3 +1,7 @@
+# ==========================================
+# PERFIL DE PRODUCCIÓN (RENDER)
+# Se usa cuando la app está publicada en internet.
+# ==========================================
 spring:
   application:
     name: portfolio-backend

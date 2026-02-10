@@ -2,6 +2,7 @@ package com.portfolio.backend.advisories.controllers;
 
 import com.portfolio.backend.advisories.dto.AdvisoryDTO;
 import com.portfolio.backend.advisories.services.AdvisoryService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.Map;
 @RequestMapping("/api/advisories")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Asesorias", description = "Solicitud, gestion y estadisticas de asesorias")
 public class AdvisoryController {
 
     private final AdvisoryService advisoryService;

@@ -2,6 +2,7 @@ package com.portfolio.backend.schedules.controllers;
 
 import com.portfolio.backend.schedules.dto.ScheduleDTO;
 import com.portfolio.backend.schedules.services.ScheduleService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/schedules")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Horarios", description = "Gestion de horarios de disponibilidad del programador")
 public class ScheduleController {
 
     private final ScheduleService scheduleService;

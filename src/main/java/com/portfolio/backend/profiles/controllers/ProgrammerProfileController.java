@@ -3,6 +3,7 @@ package com.portfolio.backend.profiles.controllers;
 import com.portfolio.backend.profiles.dtos.ProgrammerProfileDTO;
 import com.portfolio.backend.profiles.dtos.UpdateProfileRequest;
 import com.portfolio.backend.profiles.services.ProgrammerProfileService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/profiles")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
+@Tag(name = "Perfiles", description = "Perfil profesional del programador")
 public class ProgrammerProfileController {
 
     private final ProgrammerProfileService profileService;
