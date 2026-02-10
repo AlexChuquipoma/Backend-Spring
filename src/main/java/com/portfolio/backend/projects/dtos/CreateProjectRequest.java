@@ -79,7 +79,7 @@ public class CreateProjectRequest {
      * - Opcional
      * - Debe ser una URL de GitHub válida
      */
-    @Pattern(regexp = "^https://github\\.com/.+/.+$", message = "La URL del repositorio debe tener el formato: https://github.com/usuario/proyecto")
+    @Pattern(regexp = "^https?://.+/.+$", message = "La URL del repositorio debe ser una URL válida")
     private String repoUrl;
 
     /**

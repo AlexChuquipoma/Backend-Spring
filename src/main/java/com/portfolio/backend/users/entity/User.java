@@ -58,6 +58,10 @@ public class User {
     @ToString.Exclude
     private java.util.List<com.portfolio.backend.schedules.entity.Schedule> schedules;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private com.portfolio.backend.profiles.entity.ProgrammerProfile programmerProfile;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();

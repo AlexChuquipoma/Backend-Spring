@@ -40,19 +40,11 @@ public class AuthService {
             throw new RuntimeException("El email ya está registrado");
         }
 
-        Role role = Role.USER;
-        if (request.getRole() != null) {
-            try {
-                role = Role.valueOf(request.getRole().toUpperCase());
-            } catch (IllegalArgumentException ignored) {
-            }
-        }
-
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(role)
+                .role(Role.USER)
                 .build();
 
         user = userRepository.save(user);
